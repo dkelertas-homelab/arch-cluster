@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: linkding
 resources:
   - ../../base/linkding/
-  - cloudflare.yaml
-  - test-secret.yaml
-  - homelab-tunnel-credentials.yaml
-  - homelab-linkding-superuser-credentials.yaml
+  #- cloudflare.yaml
+  #- homelab-tunnel-credentials.yaml
+  #- homelab-linkding-superuser-credentials.yaml

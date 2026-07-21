@@ -19,6 +19,9 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.45.0
+          envFrom:
+            - secretRef:
+                name: homelab-linkding-superuser-credential
           ports:
             - containerPort: 9090
 
