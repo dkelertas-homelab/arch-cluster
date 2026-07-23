@@ -1,0 +1,19 @@
+#!/bin/bash
+# Generate the private key and certificate
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout ./tls.key \
+  -out ./tls.crt \
+  -subj "/C=US/ST=Sydney/L=Basement/O=Home Lab Heroes Inc./OU=Department of Monitoring/CN=grafana.d11s.space" \
+  -addext "subjectAltName=DNS:grafana.d11s.space"
+
+kubectl create secret tls grafana-tls-secret \
+  --cert=tls.crt \
+  --key=tls.key \
+  --namespace=monitoring \
+  --dry-run=client \
+  -o yaml >grafana-tls-secret.yaml
+
+export AGE_PUBLIC=age1jxudrgy7x6885yycvahksj5xl6kjhdqpwdqtgznm9r304kv22emqehe8n9
+
+sops --age=$AGE_PUBLIC \
+  --encrypt --encrypted-regex '^(data|stringData)$' --in-place grafana-tls-secret.yaml

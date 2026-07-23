@@ -34,3 +34,7 @@ spec:
         enabled: true
         ingressClassName: "traefik"
         hosts: [grafana.d11s.space]
+        tls:
+          - secretName: grafana-tls-secret
+            hosts:
+              - grafana.d11s.space
