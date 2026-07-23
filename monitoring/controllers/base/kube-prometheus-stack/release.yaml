@@ -33,4 +33,4 @@ spec:
       ingress:
         enabled: true
         ingressClassName: "traefik"
-        hosts: [grafana.d11s.net]
+        hosts: [grafana.d11s.space]
