@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: placeholder
-  namespace: placeholder
+  name: audiobs
+  namespace: audiobs
 spec:
   ingressClassName: traefik
   rules:
-    - host: placeholder.d11s.space
+    - host: audiobs.d11s.space
       http:
         paths:
           - backend:
               service:
-                name: placeholder
+                name: audiobs
                 port:
                   number: 9090
             path: /
