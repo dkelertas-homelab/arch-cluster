@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: placeholder
+resources:
+  - ../../base/placeholder/
+  - cloudflare.yaml
+  #- ingress.yaml
+  - homelab-tunnel-credentials.yaml
+  - homelab-placeholder-superuser-credentials.yaml
