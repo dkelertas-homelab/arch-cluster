@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: audiobs-configmap
+  namespace: audiobs
+data:
+  TZ: Australia/Sydney

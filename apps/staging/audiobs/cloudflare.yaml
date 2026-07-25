@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cloudflared
+  name: cloudflared-audiobs
 spec:
   selector:
     matchLabels:
-      app: cloudflared
+      app: cloudflared-audiobs
   replicas: 2 # You could also consider elastic scaling for this deployment
   template:
     metadata:
       labels:
-        app: cloudflared
+        app: cloudflared-audiobs
     spec:
       containers:
       - name: cloudflared
@@ -68,7 +68,7 @@ data:
   config.yaml: |
     # Name of the tunnel you want to run
     
-    tunnel: ld
+    tunnel: audiobs
 
     credentials-file: /etc/cloudflared/creds/homelab-tunnelcreds.json
 
@@ -78,7 +78,7 @@ data:
 
     ingress:
     - hostname: audiobs.d11s.space
-      service: http://audiobs:0000
+      service: http://audiobs:3005
 
     # This rule sends traffic to the built-in hello-world HTTP server. This can help debug connectivity
     # issues. If hello.example.com resolves and tunnel.example.com does not, then the problem is

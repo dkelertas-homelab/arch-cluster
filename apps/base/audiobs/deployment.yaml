@@ -12,26 +12,46 @@ spec:
       labels:
         app: audiobs
     spec:
-      securityContext:
-        fsGroup: 33 # www-data group ID
-        runAsUser: 33 # www-data user ID
-        runAsGroup: 33 # www-data group ID
+      #securityContext:
+        #fsGroup: 33 # www-data group ID
+        #runAsUser: 33 # www-data user ID
+        #runAsGroup: 33 # www-data group ID
       containers:
         - name: audiobs
-          image: sissbruecker/audiobs:1.42.0
+          image: ghcr.io/advplyr/audiobookshelf:2.33.0
           envFrom:
-            - secretRef:
-                name: homelab-audiobs-superuser-credentials
+            #- secretRef:
+                #name: homelab-audiobs-superuser-credentials
+            - configMapRef:
+                name: audiobs-configmap
           ports:
-            - containerPort: 9090
-
+            - containerPort: 3005
+          restart: unless-stopped
           securityContext:
-            allowPrivilegeEscalation: false
+            allowPrivilegeEscalation: true
 
           volumeMounts:
-            - name: audiobs-data
-              mountPath: /etc/audiobs/data
+            - name: audiobs-config
+              mountPath: /config
+          volumeMounts:
+            - name: audiobs-metadata
+              mountPath: /metadata
+          volumeMounts:
+            - name: audiobs-audiobooks
+              mountPath: /audiobooks
+          volumeMounts:
+            - name: audiobs-postcasts
+              mountPath: /postcasts
       volumes:
-        - name: audiobs-data
+        - name: audiobs-config
           persistentVolumeClaim:
-            claimName: audiobs-data-pvc
+            claimName: audiobs-config-pvc
+        - name: audiobs-metadata
+          persistentVolumeClaim:
+            claimName: audiobs-metadata-pvc
+        - name: audiobs-audiobooks
+          persistentVolumeClaim:
+            claimName: audiobs-audiobooks-pvc
+        - name: audiobs-podcasts
+          persistentVolumeClaim:
+            claimName: audiobs-podcasts-pvc
