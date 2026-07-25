@@ -33,13 +33,10 @@ spec:
           volumeMounts:
             - name: audiobs-config
               mountPath: /config
-          volumeMounts:
             - name: audiobs-metadata
               mountPath: /metadata
-          volumeMounts:
             - name: audiobs-audiobooks
               mountPath: /audiobooks
-          volumeMounts:
             - name: audiobs-postcasts
               mountPath: /postcasts
       volumes:
