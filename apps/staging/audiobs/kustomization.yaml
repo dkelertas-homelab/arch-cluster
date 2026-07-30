@@ -6,4 +6,3 @@ resources:
   - cloudflare.yaml
   #- ingress.yaml
   - audiobs-tunnelcreds.yaml
-  - homelab-audiobs-superuser-credentials.yaml
