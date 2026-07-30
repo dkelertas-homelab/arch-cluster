@@ -5,3 +5,4 @@ metadata:
   namespace: audiobs
 data:
   TZ: Australia/Sydney
+  PORT: 3005
