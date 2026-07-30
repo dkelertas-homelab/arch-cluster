@@ -26,9 +26,10 @@ spec:
                 name: audiobs-configmap
           ports:
             - containerPort: 3005
-          restart: unless-stopped
           securityContext:
             allowPrivilegeEscalation: false
+
+       restartPolicy: Always
 
           volumeMounts:
             - name: audiobs-config
