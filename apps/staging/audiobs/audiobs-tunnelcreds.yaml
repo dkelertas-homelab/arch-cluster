@@ -3,7 +3,7 @@ data:
     credentials.json: ENC[AES256_GCM,data:mqapCjt11i5Ss1WY+/PLeQ3xoc03+nFzF6SkuGXVsCSOFLwJx4pJTjjAks9RPVlQUS3NrkhwJidMbF8Ci1CUBLjGhf/egkLMwws+rbstwEiRStzgCo5f0loaDzpWN7HlWLh8051R4n892EJtLK/iMhYmU6nGRuIC2YfC2cihqslVitZygbsw6U0JBoYyQMagppsfpDzv0QvsR9lOY8ZcGgngQnui4EC+BJGoX2v/DGKtYFp4BoxrUzmL7WuhiKPjRUOqvdZiDHpxuZHYIytCMw8QOqXHwLq0ttmchhj+2ws9y6XAR32xdkNFRE8=,iv:Ojf91z0CB9KybJfQ7wYhqict9v50sm3C+37ixqGv2Ps=,tag:W0JNtZjkNn5GDdEO8qV/0w==,type:str]
 kind: Secret
 metadata:
-    name: audiobs-tunnelsecret
+    name: audiobs-tunnelcreds
 sops:
     age:
         - enc: |

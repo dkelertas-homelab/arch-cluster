@@ -20,8 +20,6 @@ spec:
         - name: audiobs
           image: ghcr.io/advplyr/audiobookshelf:2.33.0
           envFrom:
-            #- secretRef:
-                #name: homelab-audiobs-superuser-credentials
             - configMapRef:
                 name: audiobs-configmap
           ports:
