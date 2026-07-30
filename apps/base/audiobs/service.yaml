@@ -4,7 +4,7 @@ metadata:
   name: audiobs
 spec:
   ports:
-    - port: 80
+    - port: 3005
   selector:
     app: audiobs
   type: ClusterIP
