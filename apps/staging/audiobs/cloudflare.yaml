@@ -40,11 +40,11 @@ spec:
         # Each tunnel has an associated "credentials file" which authorizes machines
         # to run the tunnel. cloudflared will read this file from its local filesystem,
         # and it'll be stored in a k8s secret.
-        - name: creds
+        - name: audiobscreds
           mountPath: /etc/cloudflared/creds
           readOnly: true
       volumes:
-      - name: creds
+      - name: audiobscreds
         secret:
           secretName: audiobs-tunnelcreds
 

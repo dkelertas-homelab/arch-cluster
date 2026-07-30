@@ -1,6 +1,6 @@
 apiVersion: v1
 data:
-    credentials.json: ENC[AES256_GCM,data:mqapCjt11i5Ss1WY+/PLeQ3xoc03+nFzF6SkuGXVsCSOFLwJx4pJTjjAks9RPVlQUS3NrkhwJidMbF8Ci1CUBLjGhf/egkLMwws+rbstwEiRStzgCo5f0loaDzpWN7HlWLh8051R4n892EJtLK/iMhYmU6nGRuIC2YfC2cihqslVitZygbsw6U0JBoYyQMagppsfpDzv0QvsR9lOY8ZcGgngQnui4EC+BJGoX2v/DGKtYFp4BoxrUzmL7WuhiKPjRUOqvdZiDHpxuZHYIytCMw8QOqXHwLq0ttmchhj+2ws9y6XAR32xdkNFRE8=,iv:Ojf91z0CB9KybJfQ7wYhqict9v50sm3C+37ixqGv2Ps=,tag:W0JNtZjkNn5GDdEO8qV/0w==,type:str]
+    credentials.json: ENC[AES256_GCM,data:CHluuotagbCszfdWvK3A1BZXA9JJSEmJyLOUY9ApO0JcsMrsGV9e7RNaDKAPchDta56iPPl3AkfCNBAy+az7crzXvN4DoL+DmkFpJHEbABhlD7g3VA1As5JjsKSjSxnBrwQ7h4MBLAvYiMOfdmRoHGdE/mvMXqcqVQaiGXp+Z0d0UyIuQ6n4rxuO6lbMqL3Ud6WsYsX3qiVrZIgeIx22PpDarxaTdT6hhjEdyIiYhjhGxps6drFbq2igVijXgPRYAG/wBg429sgkr00SzpiakNDUtcF/wIWSCajedflTkOhKGuSq2LwUcoBj/n8=,iv:29V9QbqgRrxBcBy6smS4k6n/TMNzrvZnFsQWVef+hpI=,tag:4eQuzFsVqg0wu9qhNchb5Q==,type:str]
 kind: Secret
 metadata:
     name: audiobs-tunnelcreds
@@ -8,14 +8,14 @@ sops:
     age:
         - enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBpWDFkTjFRSGM5SDQwNENz
-            cUlPRTd1QWlCWUlUUG12SlVIZXgyQ092TTAwCndZdlVZRVhIdHY0RGxxeHhmcW1z
-            ZmFGb2U1c3ovZHVRQlZrTFR6ejRWc2MKLS0tIDRobUxwQ0Y2L3ZMb0tyUDVnME9M
-            K0haOU1CdUR5M1UzUjRjdjZKV25TaVUKGNY1qBg1gjvBM4NPPi1U4mlsvTIq9YMY
-            19sl3aTQjUlDHx228iWJ0/lgoVRQ0RMCrZ1WGHGggsybqUHetbzS5w==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBsbllxZU52Rkh4TGRveWhR
+            N0x1U1lQUExacUJhV3cwRDAzdlR0UkQ5ZUJFCmkwdUxSOFFrM3FXQWpXdmdoY0xw
+            Zm1FUmh5NUlUMlhFN0s4ZnFleFRUcTQKLS0tIC91TnlQeFVqOEROazlUaUxRUGVu
+            bTF3SWZzRXZFNTBOeHVLYkNsZlVQWkUKopdwKDrTkHn0vswbmotDWoK8xknMCqQE
+            SRCUGDs7nwxZs5SfK0MxmngKth3VEEo2Cl/93L0W52EdaL8nAPy8ZA==
             -----END AGE ENCRYPTED FILE-----
           recipient: age1jxudrgy7x6885yycvahksj5xl6kjhdqpwdqtgznm9r304kv22emqehe8n9
     encrypted_regex: ^(data|stringData)$
-    lastmodified: "2026-07-30T14:32:11Z"
-    mac: ENC[AES256_GCM,data:KV9rxWmEZV7Slv+S0KNm2HERdZfNxzjWpx3X7wF008rjgXkJ13yYGz6c8aLywI7x+4Wem1jFeFRqLYoXp/1YjTiv3KHwSEkEtrps34c7k8pBN6HNKarBTGk6CYdh+JfwFAjU+QLv5K9FNWC3iA4B/XToNI/GnSmBoSM8hOLDgAA=,iv:QkhoqosOBwa8jmgZ/UtHTD/znPttTVI+mvX7kPf5NgU=,tag:PyIPpK5m40QGo8mIAD4LEQ==,type:str]
+    lastmodified: "2026-07-30T16:04:49Z"
+    mac: ENC[AES256_GCM,data:qHs3RBQEE3teh8QykZL9iwYfpNdL2L65UfCPowuhd+91veuPW2pkxhpbSkQrfbR8irimfNE8AaTcfZtUU9e9Ztln0oj98Ga1Bq4+dTT/Eys/wABlSkR0CuYefWcsF2ztBdGrmYHfvYinLEV8+J169m/pOAVFDKHU4Aewa47mw/w=,iv:31+NC/iRy+RJo9bhnNGzEj01JzXjZXWoqVxMtpfRZS0=,tag:hNCknzGC/DyfTAt5+0euGw==,type:str]
     version: 3.13.2
