@@ -4,6 +4,7 @@ namespace: audiobs
 resources:
   - ../../base/audiobs/
   - cloudflare.yaml
+  - configmap.yaml
   #- ingress.yaml
   - homelab-tunnel-credentials.yaml
   - homelab-audiobs-superuser-credentials.yaml
