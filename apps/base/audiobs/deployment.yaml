@@ -37,8 +37,8 @@ spec:
               mountPath: /metadata
             - name: audiobs-audiobooks
               mountPath: /audiobooks
-            - name: audiobs-postcasts
-              mountPath: /postcasts
+            - name: audiobs-podcasts
+              mountPath: /podcasts
       volumes:
         - name: audiobs-config
           persistentVolumeClaim:
