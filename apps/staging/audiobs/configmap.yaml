@@ -4,5 +4,5 @@ metadata:
   name: audiobs-configmap
   namespace: audiobs
 data:
-  TZ: Australia/Sydney
+  TZ: "Australia/Sydney"
   PORT: "3005"
