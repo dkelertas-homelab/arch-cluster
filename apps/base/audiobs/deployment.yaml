@@ -27,7 +27,7 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
 
-       restartPolicy: Always
+      restartPolicy: Always
 
           volumeMounts:
             - name: audiobs-config
