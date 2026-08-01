@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cloudflared-audiobs
+  name: cloudflared
 spec:
   selector:
     matchLabels:
-      app: cloudflared-audiobs
+      app: cloudflared
   replicas: 2 # You could also consider elastic scaling for this deployment
   template:
     metadata:
       labels:
-        app: cloudflared-audiobs
+        app: cloudflared
     spec:
       containers:
       - name: cloudflared
@@ -40,13 +40,13 @@ spec:
         # Each tunnel has an associated "credentials file" which authorizes machines
         # to run the tunnel. cloudflared will read this file from its local filesystem,
         # and it'll be stored in a k8s secret.
-        - name: audiobscreds
+        - name: creds
           mountPath: /etc/cloudflared/creds
           readOnly: true
       volumes:
-      - name: audiobscreds
+      - name: creds
         secret:
-          secretName: audiobs-tunnelcreds
+          secretName: audiobs-tunnel-credentials
 
       # Create a config.yaml file from the ConfigMap below.
       - name: config
@@ -70,7 +70,7 @@ data:
     
     tunnel: audiobs
 
-    credentials-file: /etc/cloudflared/creds/credentials.json
+    credentials-file: /etc/cloudflared/creds/audiobs-tunnelcreds.json
 
     # Serves the metrics server under /metrics and the readiness server under /ready
     metrics: 0.0.0.0:2000
