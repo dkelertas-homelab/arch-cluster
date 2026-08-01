@@ -27,18 +27,15 @@ spec:
               protocol: TCP
           securityContext:
             allowPrivilegeEscalation: false
-
-      restartPolicy: Always
-
           volumeMounts:
-            - name: audiobs-config
-              mountPath: /config
-            - name: audiobs-metadata
-              mountPath: /metadata
-            - name: audiobs-audiobooks
-              mountPath: /audiobooks
-            - name: audiobs-podcasts
-              mountPath: /podcasts
+                - name: audiobs-config
+                  mountPath: /config
+                - name: audiobs-metadata
+                  mountPath: /metadata
+                - name: audiobs-audiobooks
+                  mountPath: /audiobooks
+                - name: audiobs-podcasts
+                  mountPath: /podcasts
       volumes:
         - name: audiobs-config
           persistentVolumeClaim:
@@ -52,3 +49,4 @@ spec:
         - name: audiobs-podcasts
           persistentVolumeClaim:
             claimName: audiobs-podcasts-pvc
+      restartPolicy: Always
