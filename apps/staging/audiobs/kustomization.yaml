@@ -5,4 +5,4 @@ resources:
   - ../../base/audiobs/
   - cloudflare.yaml
   #- ingress.yaml
-  - audiobs-tunnelcreds.yaml
+  - audiobs-tunnel-credentials.yaml
