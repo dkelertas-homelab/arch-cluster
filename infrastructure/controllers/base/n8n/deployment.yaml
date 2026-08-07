@@ -29,9 +29,14 @@ spec:
             allowPrivilegeEscalation: false
 
           volumeMounts:
+            - name: n8n-config
+              mountPath: /config
             - name: n8n-data
               mountPath: /home/node/.n8n
       volumes:
+        - name: n8n-config
+          persistentVolumeClaim:
+            claimName: n8n-config-pvc
         - name: n8n-data
           persistentVolumeClaim:
             claimName: n8n-data-pvc
