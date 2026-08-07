@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: n8n
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: n8n
+  template:
+    metadata:
+      labels:
+        app: n8n
+    spec:
+      securityContext:
+        fsGroup: 1000 # www-data group ID
+        runAsUser: 1000 # www-data user ID
+        runAsGroup: 1000 # www-data group ID
+      containers:
+        - name: n8n
+          image: docker.n8n.io/n8nio/n8n
+          envFrom:
+            - configMapRef:
+                name: n8n-configmap
+          ports:
+            - containerPort: 5678
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+          volumeMounts:
+            - name: n8n-data
+              mountPath: /home/node/.n8n
+      volumes:
+        - name: n8n-data
+          persistentVolumeClaim:
+            claimName: n8n-data-pvc
