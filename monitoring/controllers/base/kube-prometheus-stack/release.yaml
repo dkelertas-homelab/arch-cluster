@@ -64,6 +64,27 @@ spec:
           memory: 64Mi
         limits:
           memory: 256Mi
+    prometheus:
+      prometheusSpec:
+        # Keep history across pod restarts (was emptyDir, default 10d).
+        # yogi's root fs is ~87% full, so cap on size as well as time:
+        # ~165MB/day of samples means 4GB is roughly 3-4 weeks.
+        retention: 30d
+        retentionSize: 4GB
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: local-path
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 8Gi
+        resources:
+          requests:
+            cpu: 100m
+            memory: 768Mi
+          limits:
+            memory: 1536Mi
     grafana:
       adminPassword: p@asswd
       ingress:
