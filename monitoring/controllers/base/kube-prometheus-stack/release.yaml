@@ -86,7 +86,12 @@ spec:
           limits:
             memory: 1536Mi
     grafana:
-      adminPassword: p@asswd
+      # Admin credentials come from a SOPS-encrypted Secret in
+      # monitoring/configs/staging (decrypted by Flux), not plaintext values.
+      admin:
+        existingSecret: grafana-admin-credentials
+        userKey: admin-user
+        passwordKey: admin-password
       ingress:
         enabled: true
         ingressClassName: "traefik"
