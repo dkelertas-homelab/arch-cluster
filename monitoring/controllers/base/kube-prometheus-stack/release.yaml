@@ -27,7 +27,43 @@ spec:
       - paths: ["/metadata/annotations/prometheus-operator-validated"]
         target:
           kind: PrometheusRule
+  # node-exporter runs with hostNetwork, so by default the kubelet probes it on
+  # the node IP (wlan0). When the Wi-Fi drops, that IP disappears, the probes fail
+  # and the kubelet restarts a perfectly healthy exporter. Probe loopback instead.
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: DaemonSet
+              name: kube-prometheus-stack-prometheus-node-exporter
+            patch: |
+              - op: add
+                path: /spec/template/spec/containers/0/livenessProbe/httpGet/host
+                value: 127.0.0.1
+              - op: add
+                path: /spec/template/spec/containers/0/readinessProbe/httpGet/host
+                value: 127.0.0.1
   values:
+    prometheus-node-exporter:
+      # Default timeout is 1s, which fails under heavy load on a desktop.
+      livenessProbe:
+        timeoutSeconds: 5
+        failureThreshold: 6
+      readinessProbe:
+        timeoutSeconds: 5
+      resources:
+        requests:
+          cpu: 20m
+          memory: 32Mi
+        limits:
+          memory: 128Mi
+    kube-state-metrics:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 64Mi
+        limits:
+          memory: 256Mi
     grafana:
       adminPassword: p@asswd
       ingress:
