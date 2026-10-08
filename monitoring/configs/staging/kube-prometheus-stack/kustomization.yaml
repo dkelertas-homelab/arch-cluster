@@ -3,4 +3,15 @@ kind: Kustomization
 resources:
   - grafana-tls-secret.yaml
   - grafana-admin-credentials.yaml
-
+# Grafana dashboards: the kube-prometheus-stack Grafana sidecar loads any
+# ConfigMap labelled grafana_dashboard: "1".
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: grafana-dashboard-yogi-host
+    namespace: monitoring
+    files:
+      - dashboards/yogi-host.json
+    options:
+      labels:
+        grafana_dashboard: "1"
